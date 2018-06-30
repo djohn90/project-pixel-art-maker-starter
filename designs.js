@@ -1,10 +1,40 @@
-// Select color input
-// Select size input
+body {
+    text-align: center;
+}
 
-// When size is submitted by the user, call makeGrid()
+h1 {
+    font-family: Monoton;
+    font-size: 70px;
+    margin: 0.2em;
+}
 
-function makeGrid() {
+h2 {
+    margin: 1em 0 0.25em;
+}
 
-// Your code goes here!
+h2:first-of-type {
+    margin-top: 0.5em;
+}
 
+table,
+tr,
+td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+tr {
+    height: 20px;
+}
+
+td {
+    width: 20px;
+}
+
+input[type=number] {
+    width: 6em;
 }
