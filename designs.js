@@ -1,40 +1,37 @@
-body {
-    text-align: center;
-}
+// Select color input
+// Select size input
 
-h1 {
-    font-family: Monoton;
-    font-size: 70px;
-    margin: 0.2em;
-}
+// When size is submitted by the user, call makeGrid()
 
-h2 {
-    margin: 1em 0 0.25em;
-}
+function makeGrid() {
+    let table = $("#pixelCanvas");
+    const colorPicker = $("#colorPicker");
+    let cols = $("#inputWidth").val();
+    let rows = $("#inputHeight").val();
+  
+    table.children().remove();
+  
+    for (let i = 0; i < rows; i++) {
+      table.append("<tr></tr>");
+  
+      for (let j = 0; j < cols; j++)
+        table
+          .children()
+          .last()
+          .append("<td></td>");
+    }
 
-h2:first-of-type {
-    margin-top: 0.5em;
-}
+    table.on("click", "td", function() {
+      let color = $("input[type='color']#colorPicker").val();
+  
+      $(this).attr("bgcolor", color);
+    });
 
-table,
-tr,
-td {
-    border: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    margin: 0 auto;
-}
-
-tr {
-    height: 20px;
-}
-
-td {
-    width: 20px;
-}
-
-input[type=number] {
-    width: 6em;
-}
+  }
+  
+  const submitButton = $("input[type='submit']");
+  
+  submitButton.click(function(e) {
+    e.preventDefault();
+    makeGrid();
+  });
